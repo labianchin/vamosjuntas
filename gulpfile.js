@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-cssnano');
 var rename = require('gulp-rename');
+var server = require('gulp-express');
 var sh = require('shelljs');
 
 var paths = {
@@ -48,4 +49,15 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('server', function () {
+    server.run(['config/web-server.js']);
+
+    gulp.watch(['www/**/*.html'], server.notify);
+    gulp.watch(['scss/**/*.scss'], ['styles:scss']);
+    // gulp.watch(['{.tmp,app}/css/**/*.css'], function(event){
+    //     gulp.run('styles:css');
+    //     server.notify(event);
+    // });
 });

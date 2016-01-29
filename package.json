@@ -26,7 +26,9 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.3.0",
+    "gulp-express": "0.3.5",
+    "body-parser": "1.14.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -49,6 +51,7 @@
     "commit-msg": "cp .commit-msg .git/hooks/commit-msg",
     "android": "cordova platform add android",
     "ios": "cordova platform add ios",
-    "serve": "ionic serve"
+    "serve": "ionic serve",
+    "dev": "gulp server"
   }
 }
